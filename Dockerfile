@@ -8,6 +8,7 @@ RUN mkdir -p /tmp/artifacts/m2 && \
     cd /tmp/artifacts/m2 && \
     curl -O -L https://www.dropbox.com/s/h0gxbihbe7nfmf1/repo.tar.gz && \
     tar -zxvf repo.tar.gz && \
-    rm repo.tar.gz
+    rm repo.tar.gz && \
+    chmod -R g+rwX,o+rw /tmp/artifacts/m2
 
 USER 1001 
