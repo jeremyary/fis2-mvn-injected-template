@@ -1,0 +1,107 @@
+{
+    "apiVersion": "v1",
+    "kind": "Template",
+    "labels": {},
+    "metadata": {
+        "annotations": {
+            "description": "Template to inject mvn dependencies into java-fis-openshift image"
+        },
+        "labels": { "app": "injected-fis-openshift" },
+        "name": "injected-fis-openshift"
+    },
+    "objects": [
+        {
+            "apiVersion": "v1",
+            "kind": "ImageStream",
+            "metadata": {
+                "annotations": {},
+                "labels": {
+                    "app": "injected-fis-openshift",
+                    "group": "build",
+                    "project": "injected-fis-openshift",
+                    "version": "1.0.0"
+                },
+                "name": "injected-fis-openshift"
+            },
+            "spec": {
+                "dockerImageRepository": "${REGISTRY}:5000/${IS_PULL_NAMESPACE}/injected-fis-openshift",
+                "tags": [
+                    {
+                        "annotations": {
+                            "tags": "${IS_TAG}"
+                        },
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "injected-fis-openshift"
+                        },
+                        "name": "${IS_TAG}"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "BuildConfig",
+            "metadata": {
+                "annotations": {},
+                "labels": {
+                    "app": "injected-fis-openshift",
+                    "group": "build",
+                    "project": "injected-fis-openshift",
+                    "version": "1.0.0"
+                },
+                "name": "injected-fis-openshift"
+            },
+            "spec": {
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "injected-fis-openshift:${IS_TAG}"
+                    }
+                },
+                "source": {
+                    "git": {
+                        "uri": "https://github.com/jeremyary/injected-fis-template.git"
+                    },
+                    "images": [],
+                    "secrets": [],
+                    "type": "Git"
+                },
+                "strategy": {
+                    "dockerStrategy": {
+                        "env": [],
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "name": "fis-java-openshift:2.0",
+                            "namespace": "openshift"
+                        },
+                        "incremental": false
+                    },
+                    "type": "Docker"
+                },
+                "triggers": [
+                    {
+                        "imageChange": {
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "fis-java-openshift:2.0",
+                                "namespace": "openshift"
+                            }
+                        },
+                        "type": "ImageChange"
+                    }
+                ]
+            }
+        }
+    ],
+  "parameters" : [ {
+    "name" : "IS_TAG",
+    "value" : "latest"
+  }, {
+    "name" : "REGISTRY",
+    "value" : "172.30.37.138"
+  }, {
+    "name" : "IS_PULL_NAMESPACE",
+    "value" : "ecom-services"
+  } ]
+}
