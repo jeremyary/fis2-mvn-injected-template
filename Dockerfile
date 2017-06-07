@@ -14,6 +14,5 @@ RUN chgrp -R 0 /tmp/artifacts/m2 && \
     chmod -R g+rwX,o+rw /tmp/artifacts/m2 && \
     ls -la /tmp/artifacts/m2/ && \
     ls -la /tmp/artifacts/m2/io/fabric8/fabric8-project-bom-camel-spring-boot/2.2.170.redhat-000010
-WORKDIR /home/jboss
 
 USER 1001
