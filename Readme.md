@@ -69,10 +69,16 @@ ProjectName
 ├── pom.xml
 ```
 
-Template Usage:
+Template Usage for OpenShift 3.5+:
 ```
 oc process -f https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-template/master/templates/fis2-mvn-injected-openshift.yaml \
     -p REGISTRY=<registry_ip> -p IS_PULL_NAMESPACE=<namespace> -p GIT_URL=<.git_project_url> | oc create -f -
+```
+
+Template Usage for OpenShift 3.4-:
+```
+oc process -f https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-template/master/templates/fis2-mvn-injected-openshift.yaml \
+    -v REGISTRY=<registry_ip> -v IS_PULL_NAMESPACE=<namespace> -v GIT_URL=<.git_project_url> | oc create -f -
 ```
 
 Once the ImageStream and BuildConfig is in place, FIS 2.0 project templates can now extend the custom injector image:
