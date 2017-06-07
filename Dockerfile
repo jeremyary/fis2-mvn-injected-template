@@ -4,7 +4,7 @@ USER root
 
 RUN cd /tmp && \
     yum install -y -q git && \
-    git clone $PROJECT_REPO
+    git clone "$PROJECT_REPO"
 WORKDIR /tmp
 ADD inject.sh inject.sh
 RUN BASE_NAME=$(basename $PROJECT_REPO)
