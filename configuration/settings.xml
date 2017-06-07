@@ -6,30 +6,18 @@
 		<profile>
 			<id>build.repos</id>
 				<repositories>
-				<repository>
-					<id>fusesource.m2</id>
-					<name>FuseSource Community Release Repository</name>
-					<url>https://repo.fusesource.com/nexus/content/groups/public</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</repository>
-				<repository>
-					<id>fusesource.ea</id>
-					<name>FuseSource Community Early Access Release Repository</name>
-					<url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</repository>
+          <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+              <enabled>false</enabled>
+            </snapshots>
+            <releases>
+              <enabled>true</enabled>
+              <updatePolicy>never</updatePolicy>
+            </releases>
+          </repository>
 				<repository>
 					<id>redhat.ga</id>
 					<name>Red Hat General Availability Repository</name>
@@ -46,18 +34,6 @@
 					<id>redhat.ea</id>
 					<name>Red Hat Early Access Repository</name>
 					<url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</repository>
-				<repository>
-					<id>central</id>
-					<name>Maven Central</name>
-					<url>https://repo1.maven.org/maven2</url>
 					<snapshots>
 						<enabled>false</enabled>
 					</snapshots>
@@ -68,30 +44,18 @@
 				</repository>
 			</repositories>
 			<pluginRepositories>
-				<pluginRepository>
-					<id>fusesource.m2</id>
-					<name>FuseSource Community Release Repository</name>
-					<url>https://repo.fusesource.com/nexus/content/groups/public</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</pluginRepository>
-				<pluginRepository>
-					<id>fusesource.ea</id>
-					<name>FuseSource Community Early Access Release Repository</name>
-					<url>https://repo.fusesource.com/nexus/content/groups/ea</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</pluginRepository>
+        <pluginRepository>
+          <id>central</id>
+          <name>Maven Central</name>
+          <url>https://repo1.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
 				<pluginRepository>
 					<id>redhat.ga</id>
 					<name>Red Hat General Availability Repository</name>
@@ -108,18 +72,6 @@
 					<id>redhat.ea</id>
 					<name>Red Hat Early Access Repository</name>
 					<url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-					<releases>
-						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
-					</releases>
-				</pluginRepository>
-				<pluginRepository>
-					<id>central</id>
-					<name>Maven Central</name>
-					<url>https://repo1.maven.org/maven2</url>
 					<snapshots>
 						<enabled>false</enabled>
 					</snapshots>
