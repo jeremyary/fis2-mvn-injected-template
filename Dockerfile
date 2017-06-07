@@ -8,15 +8,11 @@ RUN cd /tmp && \
 WORKDIR /tmp
 ADD inject.sh inject.sh
 RUN chmod +x inject.sh && \
-    ./inject.sh
-# RUN mkdir -p /tmp/artifacts/m2 && \
-#     chgrp -R 0 /tmp/artifacts/m2 && \
-#     chmod -R g+rwX,o+rw /tmp/artifacts/m2 && \
-#     cd /tmp/artifacts/m2 && \
-#     curl -O -L https://www.dropbox.com/s/n01uymz96es2af0/repo.tar.gz && \
-#     tar -zxvf repo.tar.gz && \
-#     rm repo.tar.gz && \
-#     chmod -R g+rwX,o+rw /tmp/artifacts/m2
+    ./inject.sh && \
+    rm -rf /tmp/fis2-ecom-services && \
+    ls -la /tmp/artifacts/m2
+RUN chgrp -R 0 /tmp/artifacts/m2 && \
+    chmod -R g+rwX,o+rw /tmp/artifacts/m2
 WORKDIR /home/jboss
 
 USER 1001
