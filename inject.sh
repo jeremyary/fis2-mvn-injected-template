@@ -1,9 +1,9 @@
 #!/bin/sh
 
-echo $PROJECT_REPO
-pom_dirs=(find . -name 'pom.xml' -printf '%h\n' | sort -u)
-for i in "${pom_dirs[@]}"
+echo "STARTING SCRIPT"
+echo "__" + $PROJECT_REPO
+for d in (find . -name 'pom.xml')
 do
-   echo "$i"
+    echo "$d"
 done
 echo "DONE W/SCRIPT"
