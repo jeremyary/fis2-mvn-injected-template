@@ -20,7 +20,7 @@ In cases where dependencies are not altered but implementation code is changed, 
 ![Independent Build Times](images/independent_build_times.png)
 
 **Example build times utilizing intermediate dependency injection approach:**
-![Injected Build Times](images/injected_build_times.png)
+![Injected Build Times](images/inject_build_times.png)
 
 ### How
 
