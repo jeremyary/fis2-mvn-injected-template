@@ -75,6 +75,16 @@ oc process -f https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-temp
     -p REGISTRY=<registry_ip> -p IS_PULL_NAMESPACE=<namespace> -p GIT_URL=<.git_project_url> | oc create -f -
 ```
 
+Once the ImageStream and BuildConfig is in place, FIS 2.0 project templates can now extend the custom injector image:
+```
+from:
+  kind: ImageStreamTag
+  name: injected-fis-openshift:latest
+  namespace: <namespace_provided_earlier>
+```
+
+A full example template for a FIS 2.0 module extending the intermediate injector image [can be found here](templates/example_extending_project_template.yaml).
+
 ### Components
 
 * [Red Hat OpenShift Container Platform 3.X](https://docs.openshift.com/container-platform/3.5/welcome/index.html)
