@@ -3,8 +3,8 @@ FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0
 USER root
 
 RUN cd /tmp
-RUN yum install -y git
-RUN git clone $PROJECT_REPO
+RUN yum install -y -q git
+RUN git clone https://github.com/jeremyary/fis2-ecom-services.git
 ADD inject.sh inject.sh
 CMD bash 'inject.sh'
 RUN mkdir -p /tmp/artifacts/m2 && \
