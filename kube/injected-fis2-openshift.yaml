@@ -52,10 +52,12 @@ objects:
     strategy:
       dockerStrategy:
         from:
-          env: []
           kind: ImageStreamTag
           name: fis-java-openshift:2.0
           namespace: openshift
+        env:
+          - name: "PROJECT_REPO"
+            value: "https://github.com/jeremyary/fis2-ecom-services.git"
         incremental: false
       type: Docker
     triggers:
