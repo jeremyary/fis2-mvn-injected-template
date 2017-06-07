@@ -51,6 +51,7 @@ objects:
       type: Git
     strategy:
       dockerStrategy:
+        noCache: true
         from:
           kind: ImageStreamTag
           name: fis-java-openshift:2.0
