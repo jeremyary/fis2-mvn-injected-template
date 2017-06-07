@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Git project fetched. Starting maven dependency resolution..."
-for d in $(find . -name 'pom.xml')
+for d in $(find . -depth 2 -name 'pom.xml')
 do
     NAME=$(dirname "${d//\.\///tmp/}")
     cd "$NAME"
