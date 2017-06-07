@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0
 USER root
 
 RUN mkdir /tmp; cd /tmp
-RUN dnf install -y git
+RUN yum install -y git
 RUN git clone $PROJECT_REPO
 ADD inject.sh inject.sh
 CMD bash 'inject.sh'
