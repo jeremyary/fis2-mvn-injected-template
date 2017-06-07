@@ -45,7 +45,7 @@ objects:
         name: fis2-mvn-injected-openshift:${IS_TAG}
     source:
       git:
-        uri: https://github.com/jeremyary/injected-fis-template.git
+        uri: https://github.com/jeremyary/fis2-mvn-injected-template.git
       images: []
       secrets: []
       type: Git
