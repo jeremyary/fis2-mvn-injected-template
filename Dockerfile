@@ -1,9 +1,11 @@
-RUN pwd && \
-    ls -la && \
-    whoami
+
 
 FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0
 
+RUN pwd && \
+    ls -la && \
+    whoami
+    
 USER root
 
 RUN cd /tmp && \
