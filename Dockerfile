@@ -6,11 +6,11 @@ RUN cd /tmp && \
     yum install -y -q git && \
     git clone $PROJECT_REPO
 WORKDIR /tmp
-ADD inject.sh inject.sh
+ADD inject_mvn_deps.sh inject_mvn_deps.sh
 RUN BASE_NAME=$(basename $PROJECT_REPO) && \
     PROJ_NAME=${BASE_NAME%.*} && \
-    chmod +x inject.sh && \
-    ./inject.sh && \
+    chmod +x inject_mvn_deps.sh && \
+    ./inject_mvn_deps.sh && \
     rm -rf /tmp/$PROJ_NAME && \
     chgrp -R 0 /tmp/artifacts/m2 && \
     chmod -R g+rwX,o+rw /tmp/artifacts/m2
