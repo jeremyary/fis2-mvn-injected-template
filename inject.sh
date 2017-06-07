@@ -6,6 +6,6 @@ do
     NAME=$(dirname "${d//\.\///tmp/}")
     cd "$NAME"
     echo "pom.xml file detected in: $NAME, fetching dependencies..."
-    eval 'mvn -Dmaven.repo.local=/tmp/artifacts/m2 package -DskipTests -e -Dfabric8.skip=true -B'
+    eval 'mvn -Dmaven.repo.local=/tmp/artifacts/m2 dependency:go-offline -DskipTests -e -Dfabric8.skip=true -B'
 done
 echo "maven dependency resolution complete"

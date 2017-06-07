@@ -12,6 +12,6 @@ RUN BASE_NAME=$(basename $PROJECT_REPO) && \
     chmod +x inject.sh && \
     ./inject.sh && \
     rm -rf /tmp/$PROJ_NAME && \
-    chgrp -R 0 /tmp/artifacts/m3 && \
-    chmod -R g+rwX,o+rw /tmp/artifacts/m3
+    chgrp -R 0 /tmp/artifacts/m2 && \
+    chmod -R g+rwX,o+rw /tmp/artifacts/m2
 USER 1001
