@@ -2,11 +2,12 @@ FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0
 
 USER root
 
-RUN cd /tmp
-RUN yum install -y -q git
-RUN git clone https://github.com/jeremyary/fis2-ecom-services.git
+RUN cd /tmp && \
+    yum install -y -q git && \
+    git clone https://github.com/jeremyary/fis2-ecom-services.git
 ADD inject.sh inject.sh
-CMD bash 'inject.sh'
+RUN chmod +x inject.sh && \
+    ./inject.sh
 RUN mkdir -p /tmp/artifacts/m2 && \
     chgrp -R 0 /tmp/artifacts/m2 && \
     chmod -R g+rwX,o+rw /tmp/artifacts/m2 && \
