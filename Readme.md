@@ -16,10 +16,10 @@ In cases where dependencies are altered, rather than facing a lengthy build time
 
 In cases where dependencies are not altered but implementation code is changed, the existing dependency set offered by the intermediate image already satisfies the requirements of the new build, so the intermediate image build can be skipped, requiring only a build of downstream image which will, again, run in a fraction of the usual build time since all dependencies have already been made available.
 
-Example build times with containers independently fetching dependencies:
+**Example build times with containers independently fetching dependencies:**
 ![Independent Build Times](images/independent_build_times.png)
 
-Example build times utilizing intermediate dependency injection approach:
+**Example build times utilizing intermediate dependency injection approach:**
 ![Injected Build Times](images/injected_build_times.png)
 
 ### How
