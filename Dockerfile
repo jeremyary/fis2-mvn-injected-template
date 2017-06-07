@@ -8,11 +8,9 @@ RUN cd /tmp && \
     echo "Git project fetched. Starting maven dependency resolution..." && \
     cd fis2-ecom-services && \
     eval 'mvn -Dmaven.repo.local=/tmp/artifacts/m3 package -DskipTests -e -Dfabric8.skip=true -B' && \
-    eval "echo 'maven dependency resolution complete'" && \
-    chmod +x inject.sh && \
-    ./inject.sh && \
+    echo 'maven dependency resolution complete' && \
     rm -rf /tmp/fis2-ecom-services && \
     chgrp -R 0 /tmp/artifacts/m3 && \
     chmod -R g+rwX,o+rw /tmp/artifacts/m3
-    
+
 USER 1001
