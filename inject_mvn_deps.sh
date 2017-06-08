@@ -4,9 +4,9 @@ echo "Git project fetched. Starting maven dependency resolution..."
 for d in $(find ./* -name 'Model')
 do
     NAME=$(dirname "${d//\.\///tmp/}")
-    cd "$NAME"
+    cd "$NAME/Model"
     echo "Model module detected at $NAME, injecting......"
-    mvn -s /tmp/settings.xml -Dmaven.repo.local=/tmp/artifacts/m2 install -B
+    mvn -s /tmp/settings.xml -Dmaven.repo.local=/tmp/artifacts/m2 -DskipTests -e install -B
     if [ "$?" -ne 0 ]; then
         echo "Maven packaging unsuccessful"
         exit 1
