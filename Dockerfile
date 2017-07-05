@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0-3
+FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0-6
 
 USER root
 
