@@ -9,6 +9,7 @@ RUN cd /tmp && \
     curl -L -O https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-template/master/inject_mvn_deps.sh && \
     chmod +x inject_mvn_deps.sh && \
     echo "running yum install git..." && \
+    rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm && \
     yum install -y -q git && \
     echo "cloning downstream project..." && \
     git clone $PROJECT_REPO && \
