@@ -9,7 +9,7 @@ RUN cd /tmp && \
     curl -L -O https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-template/master/inject_mvn_deps.sh && \
     chmod +x inject_mvn_deps.sh && \
     echo "running yum install git..." && \
-    dnf install -y -q git && \
+    yum install -y -q git && \
     echo "cloning downstream project..." && \
     git clone $PROJECT_REPO && \
     echo "running injection script..." && \
