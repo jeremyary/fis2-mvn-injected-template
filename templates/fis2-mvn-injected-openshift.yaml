@@ -54,7 +54,7 @@ objects:
         noCache: true
         from:
           kind: ImageStreamTag
-          name: fis-java-openshift:2.0
+          name: fis-java-openshift:2.0-6
           namespace: openshift
         env:
           - name: "PROJECT_REPO"
@@ -65,7 +65,7 @@ objects:
     - imageChange:
         from:
           kind: ImageStreamTag
-          name: fis-java-openshift:2.0
+          name: fis-java-openshift:2.0-6
           namespace: openshift
       type: ImageChange
 parameters:
