@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:latest
+FROM registry.access.redhat.com/jboss-fuse-6/fis-java-openshift:2.0-3
 
 USER root
 
@@ -9,7 +9,6 @@ RUN cd /tmp && \
     curl -L -O https://raw.githubusercontent.com/jeremyary/fis2-mvn-injected-template/master/inject_mvn_deps.sh && \
     chmod +x inject_mvn_deps.sh && \
     echo "running yum install git..." && \
-    yum install http://opensource.wandisco.com/centos/6/git/x86_64/wandisco-git-release-6-1.noarch.rpm && \
     yum install -y -q git && \
     echo "cloning downstream project..." && \
     git clone $PROJECT_REPO && \
