@@ -54,18 +54,24 @@ objects:
         noCache: true
         from:
           kind: ImageStreamTag
-          name: fis-java-openshift:2.0-6
+          name: fis-java-openshift:2.0
           namespace: openshift
         env:
-          - name: "PROJECT_REPO"
-            value: "${GIT_URL}"
+          - name: "GIT_USER"
+            value: "${GIT_USER}"
+          - name: "GIT_PROJECT"
+            value: "${GIT_PROJECT}"
+          - name: "GIT_RELEASE"
+            value: "${GIT_RELEASE}"
+            - name: "GIT_TARBALL"
+            value: "${GIT_TARBALL}"
         incremental: false
       type: Docker
     triggers:
     - imageChange:
         from:
           kind: ImageStreamTag
-          name: fis-java-openshift:2.0-6
+          name: fis-java-openshift:2.0
           namespace: openshift
       type: ImageChange
 parameters:
@@ -75,5 +81,11 @@ parameters:
   value: 172.30.37.138
 - name: IS_PULL_NAMESPACE
   value: openshift
-- name: GIT_URL
-  value: https://github.com/jeremyary/fis2-ecom-services.git
+- name: GIT_USER
+  value: jeremyary
+- name: GIT_PROJECT
+  value: fis2-ecom-services
+- name: GIT_RELEASE
+  value: 1.0
+- name: GIT_TARBALL
+  value: 1.0
